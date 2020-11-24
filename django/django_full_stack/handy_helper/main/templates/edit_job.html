@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Hello {{logged_in_user.first_name}} Lets edit your job!</h1>
+        <form action="/editjob/{{num}}" method="post">
+            {% csrf_token %}
+            <label for="title">Title:</label>
+            <input type="text" name="title" id="title"value="{{job_to_edit.title}}" required><br>
+            <label for="desc">Description:</label>
+            <input type="text" name="desc" id="desc" value="{{job_to_edit.desc}}" required><br>
+            <label for="location">Location</label>
+            <input type="text" name="location" id="location" value="{{job_to_edit.location}}" required><br>
+            <button type="submit">Submit Job</button>
+            <input type="hidden" name="job_id" id="job_id" value="{{job.id}}">
+        </form>
+        <form action="/welcome" method="post">
+            {% csrf_token %}
+            <button type="submit">Cancel</button>
+        </form>
+
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#container{
+    
+    font-family: fantasy;
+    background-image: linear-gradient(darkorange,white);
+}

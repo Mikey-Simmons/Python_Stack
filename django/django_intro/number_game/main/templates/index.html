@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Game</title>
+</head>
+<body>
+    <h1>Welcome to the Great Number Game!</h1><br>
+    <h3>I am thinking of a number between 1 and 100.</h3><br>
+    <h4>Take a Guess!</h4><br>
+    <form action="/number_guess" method="POST">
+        {% csrf_token %}
+        Guess: <input type="number" name='the_guess'>
+        <button type = 'submit'>Guess</button>
+    </form>
+</body>
+</html>

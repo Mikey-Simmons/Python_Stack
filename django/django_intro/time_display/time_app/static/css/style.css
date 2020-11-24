@@ -1,0 +1,23 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#timer p{
+    font-family: fantasy;
+    font-size: xxx-large;
+    color: deepskyblue
+    
+
+}
+#timer{
+    display: flex;
+    justify-content: center;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    color: deepskyblue
+}
+body{
+    background-color: fuchsia;
+}

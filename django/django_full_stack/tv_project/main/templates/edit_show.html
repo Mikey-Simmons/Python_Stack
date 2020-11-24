@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Show</title>
+</head>
+<body>
+    <div id="container">
+        <h1>EDIT TV SHOW {{show_to_edit.id}}</h1>
+        <form action="/editshow" method="post">
+            {% csrf_token %}
+            Title: <input type="text" name="title" id="title" value="{{show_to_edit.title}}">
+            Network: <input type="text" name="network" id="network" value="{{show_to_edit.network}}">
+            Release Date: <input type="date" name="release_date" id="release_date" value="{{show_to_edit.date}}">
+            Description: <input type="text" name="description" id="description" value="{{show_to_edit.desc}}">
+            <input type="hidden" name="show_id" value="{{show_to_edit.id}}">
+            <button type="submit">Edit!</button>
+            
+        
+        </form>
+        <a href="http://localhost:8000/shows"> Go back </a>
+
+
+
+
+    </div>
+</body>
+</html>

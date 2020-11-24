@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Page</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1> {{book_to_show.title}} </h1> <br>
+        <h3>Description:</h3>
+        <p> {{book_to_show.desc}}</p>
+        <h3>Authors:</h3>
+
+        {% for auth in book_authors %}
+
+        <li>
+            {{auth.first_name}}
+            {{auth.last_name}}
+            {% endfor %}
+        </li>
+
+        <form action="/add_auth_to_book" method="post">
+            {% csrf_token %}
+            <select name="auth_id" id="auth_id">
+                {% for auth in all_authors %}
+                    {%if auth not in book_authors %}
+                <option value="{{auth.id}}">
+                    {{auth.first_name}} {{auth.last_name}}
+                </option>
+                {% endif %}
+                {% endfor %}
+
+            </select>
+            <button type="submit">Add</button>
+            <input type="hidden" name="book_id" value= "{{book_to_show.id}}">
+
+
+
+        </form>
+
+
+
+
+
+
+    </div>
+</body>
+
+</html>

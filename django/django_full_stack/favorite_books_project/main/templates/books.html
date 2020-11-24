@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Welcome {{logged_in_user.first_name}} </h1>
+        <br>
+        
+        {%if book_to_display.uploaded_by == logged_in_user%}
+        <h1>Edit {{book_to_display.title}} </h1>
+        <form action="/editbook" method="post">
+            {% csrf_token %}
+            <label for="title">Title</label>
+            <input type="text" value="{{book_to_display.title}}" name="title" id="title"><br>
+            <label for="Desc">Description</label>
+            <input type="text" value="{{book_to_display.desc}}" name="desc" id="desc"><br>
+            <input type="hidden" name="book_id" id="book_id" value="{{book_to_display.id}}">
+            <button type="submit">Edit</button>
+        </form>
+        <p>Added on by: {{book_to_display.created_at}}</p>
+        <p>Updated on : {{book_to_display.updated_at}}</p>
+        <h1>Users Who Like This Book:</h1>
+
+        {%for user in book_to_display.users_who_like.all%}
+        <p>{{user.first_name}} {{user.last_name}}</p>
+        {%endfor%}
+        {%if book_to_display in logged_in_user.liked_books.all%}
+        <form action="/removefav" method="post">
+            {%csrf_token%}
+            <input type="hidden" name="book_id" id="book_id" value="{{book_to_display.id}}">
+            <button type="submit">Remove from Favorites</button>
+            </form>
+        {%else%}
+        <form action="/addfav" method="post">
+            {%csrf_token%}
+            <input type="hidden" name="book_id" id="book_id" value="{{book_to_display.id}}">
+            <button type="submit">Add to Favorites</button>
+        </form>
+        {%endif%}
+
+        {%else%}
+        <p>{{book_to_display.title}}</p>
+        <p>{{book_to_display.desc}}</p>
+        <p>Added on by: {{book_to_display.created_at}}</p>
+        <p>Updated on : {{book_to_display.updated_at}}</p>
+
+        {%endif%}
+
+            
+
+        
+    
+      
+    </div>
+</body>
+
+</html>finis

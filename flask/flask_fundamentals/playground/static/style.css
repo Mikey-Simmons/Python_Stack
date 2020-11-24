@@ -1,0 +1,27 @@
+* {
+    margin: 0px;
+    padding: 0px;
+   
+}
+
+#container{
+    width: 970px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: blueviolet;
+    
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    margin: 0 auto;
+}
+#boxes{
+    display: flex;
+    margin: 10px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+}

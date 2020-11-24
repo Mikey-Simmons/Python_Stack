@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Add an Author</h1>
+        <form action="/addauth" method="post">
+            {% csrf_token %}
+            First Name: <input type="text" name="first" id="first"> <br>
+            Last Name: <input type="text" name="last" id="last"><br>
+            Notes: <input type="text" name="notes" id="notes"> <br>
+            <button type="submit">Add!</button>
+
+        </form>
+
+        {% for auth in all_authors %}
+
+        <li>
+            First Name: {{auth.first_name}} <br>
+            Last Name: {{auth.last_name}} <br>
+            Notes: {{auth.notes}}
+            {% endfor %}
+        </li>
+
+
+
+
+    </div>
+</body>
+
+</html>

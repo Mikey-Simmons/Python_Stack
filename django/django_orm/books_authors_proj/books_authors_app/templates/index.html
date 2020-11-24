@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>Add a Book</h1> <br>
+        <form action="/addbook" method='post'>
+            {% csrf_token %}
+            Title: <input type="text" name="title" id="title"><br>
+            Description: <input type="text" name="description" id="description"><br>
+            <button type="submit">Add!</button>
+        </form>
+        <ul>
+            {% for book in all_books %}
+            <li>Title: {{ book.title }} <br>
+                Description: {{book.desc}}
+                
+            </li>
+            {% endfor %}
+        </ul>
+
+
+
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+</head>
+
+<body>
+    <h1>All the Users</h1><br>
+    <ul>
+        {% for user in all_users %}
+            <li>{{ user.first_name }}
+                {{user.last_name}}
+                {{user.email}}
+                {{user.age}}
+            </li>
+        {% endfor %}
+        </ul>
+        
+    <h1>Add a User</h1><br>
+    <form action="/submitted"method='post'>
+        {% csrf_token %}
+        First name: <input type="text" name='firstname'><br>
+        Last name: <input type="text" name='lastname'><br>
+        Email: <input type="text" name='email'><br>
+        Age: <input type="number" name='age'><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
